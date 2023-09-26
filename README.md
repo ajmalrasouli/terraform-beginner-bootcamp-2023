@@ -235,3 +235,53 @@ If you lose this file, you lose knowning the state of your infrastructure.
 ### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers.
+
+```hcl
+# Specify the required providers and their versions
+# The 'random' provider version 3.5.1 and the 'aws' provider version 5.16.2 are required.
+required_providers {
+  random = {
+    source  = "hashicorp/random"
+    version = "3.5.1"
+  }
+  aws = {
+    source  = "hashicorp/aws"
+    version = "5.16.2"
+  }
+}
+
+# Configure the AWS provider
+provider "aws" {
+  # You can specify AWS credentials and region here if needed.
+  # Example:
+  # access_key = "YOUR_ACCESS_KEY"
+  # secret_key = "YOUR_SECRET_KEY"
+  # region     = "us-west-2"
+}
+
+# Configure the random provider (No specific configuration options in this example)
+provider "random" {
+  # Configuration options can be specified here if needed.
+}
+
+# Generate a random string for the S3 bucket name
+# Reference: https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string
+resource "random_string" "bucket_name" {
+  lower   = true
+  upper   = false
+  length  = 32
+  special = false
+}
+
+# Create an AWS S3 bucket with the random bucket name
+# Reference: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
+resource "aws_s3_bucket" "example" {
+  # Bucket Naming Rules:
+  # https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html?icmpid=docs_amazons3_console
+  bucket = random_string.bucket_name.result
+}
+
+# Define an output to display the randomly generated bucket name
+output "random_bucket_name" {
+  value = random_string.bucket_name.result
+}
