@@ -285,3 +285,67 @@ resource "aws_s3_bucket" "example" {
 output "random_bucket_name" {
   value = random_string.bucket_name.result
 }
+
+
+## Terraform Cloud Login and Gitpod Workspace
+
+Generate a token in Terraform Cloud
+
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+
+Then create open the file manually here:
+
+```sh
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+
+Provide the following code (replace your token in the file):
+
+```json
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "YOUR-TERRAFORM-CLOUD-TOKEN"
+    }
+  }
+}
+``````
+
+### Terraform pricing
+
+```
+https://www.hashicorp.com/products/terraform/pricing
+
+```
+
+# Terraform Workspace and Project
+
+## Terraform Workspace 🏗️
+
+- A workspace in Terraform is a way to organize and isolate different configurations or environments for your infrastructure.
+- Workspaces allow you to have multiple sets of Terraform configuration files within the same project directory, each representing a different environment (e.g., development, staging, production).
+- Each workspace has its own set of variable values and state, which means you can have different infrastructure resources deployed for each workspace.
+- You can create, switch between, and delete workspaces using Terraform commands like `terraform workspace new`, `terraform workspace select`, and `terraform workspace delete`.
+
+### Example:
+
+```bash
+# Create a new workspace named "dev"
+terraform workspace new dev
+
+# Switch to the "dev" workspace
+terraform workspace select dev
+
+# Deploy infrastructure for the "dev" workspace
+terraform apply
+
+Project 📦
+In a broader software development context, a "project" typically refers to a specific piece of work with defined objectives, scope, and resources.
+A project may encompass multiple components, including code repositories, documentation, infrastructure configurations, and more.
+Terraform is often used as a tool within a project to manage the infrastructure aspects of that project. 🚀
+Example:
+You might have a software development project that includes code repositories for application code, a Terraform project for provisioning infrastructure on a cloud provider, and perhaps a separate project for documentation.
+Feel free to use this Markdown file in your GitHub repository or documentation, and the emojis will be correctly displayed.
