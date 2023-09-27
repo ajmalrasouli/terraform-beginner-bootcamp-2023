@@ -349,3 +349,32 @@ Terraform is often used as a tool within a project to manage the infrastructure 
 Example:
 You might have a software development project that includes code repositories for application code, a Terraform project for provisioning infrastructure on a cloud provider, and perhaps a separate project for documentation.
 Feel free to use this Markdown file in your GitHub repository or documentation, and the emojis will be correctly displayed.
+
+
+We have automated this workaround with the following bash script bin/generate_tfrc_credentials
+
+# Credentials for Terraform Cloud and Terraform Enterprise
+
+Terraform Cloud provides a number of remote network services for use with Terraform, and Terraform Enterprise allows hosting those services inside your own infrastructure. For example, these systems offer both remote operations and a private module registry.
+
+## API Tokens in CLI Configuration
+
+When interacting with Terraform-specific network services, Terraform expects to find API tokens in CLI configuration files in credentials blocks. You can have multiple credentials blocks if you regularly use services from multiple hosts. Many users will configure only one, for either Terraform Cloud or their organization''s own Terraform Enterprise host. Each credentials block contains a token argument giving the API token to use for that host.
+
+```hcl
+credentials "app.terraform.io" {
+  token = "xxxxxx.atlasv1.zzzzzzzzzzzzz"
+}
+```
+
+## Authentication Methods
+
+There are two primary authentication methods for obtaining API tokens:
+
+1. **Interactive Authentication**: If you are running the Terraform CLI interactively on a computer with a web browser, you can use the `terraform login` command to get credentials. This command will initiate an interactive authentication flow, usually through a web page, and automatically save the obtained credentials in the CLI configuration.
+
+2. **Manual Configuration**: If you are not running Terraform interactively or prefer manual configuration, you can manually write the credentials block in the CLI configuration file as shown above.
+
+### Token Requirements
+
+**Important**: If you are using Terraform Cloud or Terraform Enterprise, the token provided must be either a user token or a team token; organization tokens cannot be used for command-line Terraform actions.
