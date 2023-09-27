@@ -378,3 +378,29 @@ There are two primary authentication methods for obtaining API tokens:
 ### Token Requirements
 
 **Important**: If you are using Terraform Cloud or Terraform Enterprise, the token provided must be either a user token or a team token; organization tokens cannot be used for command-line Terraform actions.
+
+
+### Set alias for Terraform in bash
+```sh
+open ~/.bash_profile 
+source ~/.bash_profile (to apply changes)
+```
+
+# Setting an Alias for Terraform in Bash
+
+To make using Terraform more convenient in your Bash shell, you can set up an alias. An alias allows you to create a custom shorthand command for running Terraform commands. Here's how to do it:
+
+```bash
+# Open a terminal.
+# Use a text editor to edit your Bash configuration file, typically ~/.bashrc or ~/.bash_profile.
+# Add the alias at the end of the file:
+alias tf='terraform'
+# Save and exit the text editor.
+# To apply the changes, either restart your terminal or run:
+source ~/.bashrc  # Use ~/.bash_profile if applicable.
+# You can now use the 'tf' alias to run Terraform commands, e.g., 'tf init', 'tf plan', 'tf apply'.
+```
+
+The alias will make it more convenient to use Terraform commands in your terminal. You can replace 'tf' with any alias name you prefer.
+
+
