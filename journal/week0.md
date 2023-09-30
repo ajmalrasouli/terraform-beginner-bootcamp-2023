@@ -442,3 +442,27 @@ source ~/.bashrc  # Use ~/.bash_profile if applicable.
 ```
 
 The alias will make it more convenient to use Terraform commands in your terminal. You can replace 'tf' with any alias name you prefer.
+
+![terraform login](https://github.com/ajmalrasouli/terraform-beginner-bootcamp-2023/assets/88502375/db089975-e2e4-42ab-a7c9-15efee100ccd)
+
+![terra-house-1](https://github.com/ajmalrasouli/terraform-beginner-bootcamp-2023/assets/88502375/eeb92598-6388-4711-b80a-1155afaaca26)
+
+![terraform init](https://github.com/ajmalrasouli/terraform-beginner-bootcamp-2023/assets/88502375/70fd28ba-a087-4b98-96e2-be1031eaa6e8)
+
+![terraform S3](https://github.com/ajmalrasouli/terraform-beginner-bootcamp-2023/assets/88502375/94bcaf51-4997-447d-9e42-43d636a036f2)
+
+![terraform S3 Destroy](https://github.com/ajmalrasouli/terraform-beginner-bootcamp-2023/assets/88502375/f02b587b-f4e9-4623-83ce-faae0e10942a)
+
+![s3 static website](https://github.com/ajmalrasouli/terraform-beginner-bootcamp-2023/assets/88502375/00915da8-168f-4839-8b8f-581c576400c1)
+
+![Static website](https://github.com/ajmalrasouli/terraform-beginner-bootcamp-2023/assets/88502375/8ef80a58-217d-4061-92e7-0e7621f17ef0)
+
+
+
+
+
+
+
+
+
+
