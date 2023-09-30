@@ -5,7 +5,7 @@
 - [Terraform Beginner Bootcamp 2023 - Week 0](#terraform-beginner-bootcamp-2023---week-0)
     - [Semantic Versioning](#semantic-versioning)
     - [Install the Terraform CLI](#install-the-terraform-cli)
-        - [Considerations with the Terraform CLI changes :pouch:](#considerations-with-the-terraform-cli-changes-pouch)
+        - [Considerations with the Terraform CLI changes](#considerations-with-the-terraform-cli-changes)
         - [Considerations for Linux Distribution](#considerations-for-linux-distribution)
         - [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
             - [Shebang Considerations](#shebang-considerations)
@@ -57,7 +57,7 @@ The general format:
 
 ## Install the Terraform CLI
 
-### Considerations with the Terraform CLI changes :pouch:
+### Considerations with the Terraform CLI changes
 The Terraform CLI installation instructions have changed due to gpg keyring changes. So we needed refer to the latest install CLI instructions via Terraform Documentation and change the scripting for install.
 
 [Install Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
