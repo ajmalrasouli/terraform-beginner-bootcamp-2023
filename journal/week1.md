@@ -163,3 +163,63 @@ You can use terraform port but it won't for all cloud resources. You need check 
 If someone goes and delete or modifies cloud resource manually through ClickOps. 
 
 If we run Terraform plan is with attempt to put our infrstraucture back into the expected state fixing Configuration Drift
+
+
+## Fix using Terraform Refresh
+
+```sh
+terraform apply -refresh-only -auto-approve
+```
+
+## Using Terraform Refresh
+
+Terraform `refresh` is a command used to update the state file with the real-world infrastructure's current status. It does not modify or fix your infrastructure; instead, it updates Terraform's understanding of the actual resources in your infrastructure. Here's how to use `terraform refresh`:
+
+1. Navigate to your Terraform project directory in your terminal.
+
+2. Ensure that your Terraform configuration files (usually with `.tf` extension) are in place.
+
+3. Run the following command to refresh the state:
+
+   ```bash
+   terraform refresh
+
+his command will update the state file with the latest information from your actual infrastructure. It's useful when you want to sync Terraform's state with the real-world infrastructure if changes were made outside of Terraform, such as manual changes to resources or updates made through another tool.
+
+Remember that terraform refresh does not make any changes to your infrastructure. It only updates Terraform's understanding of the current state. If you need to apply changes to your infrastructure based on your Terraform configuration, you should use terraform apply after making the necessary modifications to your .tf files.
+
+
+## Terraform Modules
+
+### Terraform Module Structure
+
+It is recommend to place modules in a `modules` directory when locally developing modules but you can name it whatever you like.
+
+### Passing Input Variables
+
+We can pass input variables to our module.
+The module has to declare the terraform variables in its own variables.tf
+
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
+}
+```
+
+### Modules Sources
+
+Using the source we can import the module from various places eg:
+- locally
+- Github
+- Terraform Registry
+
+```tf
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+}
+```
+
+
+[Modules Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
