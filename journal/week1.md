@@ -141,3 +141,25 @@ variable "instance_type" {
 ```
 
 5. **Consistency and Style:** While the order of variables doesn't affect Terraform's functionality, maintaining a consistent style and organization in your code can make it more readable and maintainable. You may want to group related variables together or follow a specific naming convention for your variables.
+
+
+## Dealing With Configuration Drift
+
+## What happens if we lose our state file?
+
+If you lose your statefile, you most likley have to tear down all your cloud infrastructure manually.
+
+You can use terraform port but it won't for all cloud resources. You need check the terraform providers documentation for which resources support import.
+
+### Fix Missing Resources with Terraform Import
+
+`terraform import aws_s3_bucket.bucket bucket-name`
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+
+### Fix Manual Configuration
+
+If someone goes and delete or modifies cloud resource manually through ClickOps. 
+
+If we run Terraform plan is with attempt to put our infrstraucture back into the expected state fixing Configuration Drift
