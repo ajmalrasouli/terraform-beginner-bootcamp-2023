@@ -415,3 +415,41 @@ I have used the following command to destroy the newly generated cloudfront usin
 ```terraform
 terraform destroy --auto-approve
 ```
+
+## Git Graph Extension for Visual Studio Code
+
+Visual Studio Code (VSCode) has a built-in Git extension that provides basic Git functionality. However, for more advanced Git visualization and graph features, you can install additional extensions. One popular extension for Git graph visualization in VSCode is the **Git Graph** extension.
+
+### Installation
+
+1. Open Visual Studio Code.
+
+2. Go to the Extensions view by clicking the square icon on the left sidebar or using the shortcut `Ctrl+Shift+X` (Cmd+Shift+X on macOS).
+
+3. In the Extensions view, search for "Git Graph."
+
+4. Find the "Git Graph" extension by **mhutchie** and click the "Install" button.
+
+### Features
+
+Here are some common tasks you can perform using the Git Graph extension:
+
+- **View Git History**: You can open the Git Graph view by clicking the Git Graph icon in the left sidebar or using the `Ctrl+Shift+G` (Cmd+Shift+G on macOS) keyboard shortcut. This view allows you to visualize your Git commit history.
+
+- **Branch Visualization**: Git Graph provides an interactive graph that shows your branches, commits, and their relationships. You can click on nodes to see commit details, right-click for context menus, and drag nodes to create new branches or merge changes.
+
+- **Commit Details**: You can view commit details by clicking on a commit node in the graph. This shows you the commit message, author information, and the changes made in that commit.
+
+- **Branch Management**: Git Graph allows you to create and delete branches, checkout branches, and perform various branch-related operations from within the extension.
+
+- **Stash Management**: You can stash changes and manage stashes directly from the Git Graph view.
+
+- **Remote Branches**: The extension also supports visualizing and managing remote branches.
+
+- **Timeline**: You can toggle between a timeline and graph view to see a linear representation of your Git history.
+
+- **Search and Filter**: You can search for commits, filter branches, and apply various filters to focus on specific parts of your Git history.
+
+This extension is particularly useful for developers who want a visual representation of their Git history and find it helpful for managing branches and understanding the relationships between commits.
+
+Keep in mind that the availability and features of extensions may change over time, so it's a good idea to check the VSCode Marketplace or the extension's documentation for the most up-to-date information.
