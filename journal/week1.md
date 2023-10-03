@@ -356,3 +356,62 @@ resource "aws_instance" "web" {
 }
 ```
 https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec
+
+
+https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec
+
+## For Each Expressions
+
+For each allows us to enumerate over complex data types
+
+```sh
+[for s in var.list : upper(s)]
+```
+
+This is mostly useful when you are creating multiples of a cloud resource and you want to reduce the amount of repetitive terraform code.
+
+[For Each Expressions](https://developer.hashicorp.com/terraform/language/expressions/for)
+
+
+## Error encounter during assets upload
+
+```sh
+│ Error: Missing required argument
+│ 
+│   on main.tf line 19, in module "terrahouse_aws":
+│   19: module "terrahouse_aws" {
+│ 
+│ The argument "assets_path" is required, but no definition was found.
+╵
+gitpod /workspace/terraform-beginner-bootcamp-2023 (36-assets-upload) $ 
+```
+
+### Solution
+
+The error message you're encountering is telling you that there is a missing required argument in your Terraform configuration for a module named "terrahouse_aws," specifically the "assets_path" argument. You need to provide a value for this argument in your module configuration.
+
+To fix this error, you should locate the module block for "terrahouse_aws" in your main.tf file and make sure you provide the "assets_path" argument with a valid value. Here's an example of how you can define the "assets_path" argument:
+
+```hcl
+module "terrahouse_aws" {
+  source      = "./modules/terrahouse_aws"
+  assets_path = "path/to/your/assets"
+  # Other module arguments go here
+}
+```
+
+Replace "path/to/your/assets" with the actual path to the assets you want to use in your module.
+
+So, i have added the following code snipet to main.tf:
+
+```sh
+assets_path = "/workspace/terraform-beginner-bootcamp-2023/public/assets/"
+```
+
+![assets upload](image.png)
+
+I have used the following command to destroy the newly generated cloudfront using terraform:
+
+```terraform
+terraform destroy --auto-approve
+```
