@@ -62,6 +62,6 @@ that brings together the fresh flavors of the ocean and the
 sweetness of tender corn kernels in a harmonious blend. 
 DESCRIPTION
   domain_name = module.home_payday_hosting.domain_name
-  town = "missingo"
+  town = "cooker-cove"
   content_version = var.payday.content_version
 }
