@@ -13,12 +13,12 @@ terraform {
   #    name = "terra-house-1"
   #  }
   #}
-  #cloud {
-  #  organization = "ExamPro"
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
+  cloud {
+    organization = "Ajmaltech"
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
 
 }
 
@@ -28,13 +28,11 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-module "terrahouse_aws" {
-  source = "./modules/terrahouse_aws"
+module "home_arcanum_hosting" {
+  source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version = var.content_version
-  assets_path = var.assets_path
+  public_path = var.arcanum.public_path
+  content_version = var.arcanum.content_version
 }
 
 resource "terratowns_home" "home" {
@@ -42,9 +40,28 @@ resource "terratowns_home" "home" {
   description = <<DESCRIPTION
 Here, you can showcase some of your favorite games or
 provide information about popular games. Include images,
-descriptions, and links to more details.
+descriptions, and links to more details.    
 DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = module.home_arcanum_hosting.domain_name
   town = "missingo"
-  content_version = 1
+  content_version = var.arcanum.content_version
+}
+
+module "home_payday_hosting" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.payday.public_path
+  content_version = var.payday.content_version
+}
+
+resource "terratowns_home" "home_payday" {
+  name = "Tuna and Sweetcorn Salad"
+  description = <<DESCRIPTION
+Tuna and Sweetcorn Salad is a delightful and nutritious dish
+that brings together the fresh flavors of the ocean and the
+sweetness of tender corn kernels in a harmonious blend. 
+DESCRIPTION
+  domain_name = module.home_payday_hosting.domain_name
+  town = "missingo"
+  content_version = var.payday.content_version
 }
