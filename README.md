@@ -12,3 +12,16 @@
 - [Github Markdown TOC Generator](https://open-vsx.org/extension/huntertran/auto-markdown-toc)
 
 
+## The First Post
+<img width="751" alt="image" src="https://github.com/ajmalrasouli/terraform-beginner-bootcamp-2023/assets/88502375/deb3ac4d-d490-4fbb-b6a8-3bbf6ff037aa">
+
+
+## My Home
+
+![image](https://github.com/ajmalrasouli/terraform-beginner-bootcamp-2023/assets/88502375/dc8a55c0-e7e9-49c5-bc31-dbd5b4181a03)
+
+
+![image](https://github.com/ajmalrasouli/terraform-beginner-bootcamp-2023/assets/88502375/16b481f5-480b-4814-9d92-9237e62fb5f1)
+
+
+The project's integration with Terraform Cloud, support for building numerous homes, and effective configuration management are the main goals of version 2.6.0.
